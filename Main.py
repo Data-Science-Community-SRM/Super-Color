@@ -26,7 +26,7 @@ def main():
     print("Got data")
 
     # print first image
-    plt.imshow(z[1][0])
+    plt.imshow(z[4][0])
     plt.grid(False)
     plt.show()
 

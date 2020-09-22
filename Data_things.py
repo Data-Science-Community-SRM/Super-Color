@@ -14,7 +14,7 @@ def get_data( loc ):
 
 
     """
-    x = torchvision.datasets.ImageFolder(loc)
+    x = torchvision.datasets.ImageFolder(loc,torchvision.transforms.CenterCrop(250))
     return x
 
 if __name__ == "__main__":
