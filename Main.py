@@ -1,34 +1,24 @@
-"""
-Main file for compiling everything
-
-training, inference everything will be run from here 
-
-"""
-
-# importing our personal file 
-import Data_things
-
-
+import data_loader as dl
 import matplotlib.pyplot as plt
 
-
-
 def main():
-    """
-    can only show image for now
-    """
     print("Running main now")
 
     # getting images from this directory
-    z = Data_things.get_data(".")
+    train_loader, test_loader = dl.get_data(".")
     
-    print(z)
-    print("Got data")
+    # print(z)
+    # print("Got data")
 
     # print first image
-    plt.imshow(z[4][0])
-    plt.grid(False)
-    plt.show()
+    # plt.imshow(z[4][0])
+    # plt.grid(False)
+    # plt.show()
+
+    # I think these two lines should probably print the first image
+    for img, _ in dataloader:
+        plt.imshow(img[0])
+        plt.show()
 
     
 # This will call main function only when this is the main file
