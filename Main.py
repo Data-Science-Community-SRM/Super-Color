@@ -2,9 +2,12 @@ import data_loader as dl
 import matplotlib.pyplot as plt
 
 
+# importing our personal file 
+import Data_things
+import model
+
 def train(model, train_loader):
     losses = []
-
     for epoch in range(100):
         running_loss = 0.0
 
@@ -32,28 +35,23 @@ def train(model, train_loader):
     plt.ylabel('Losses')
 
 def main():
-    print("Running main now")
+    """
+    Can call function from now
+    """
+    #get images from  current folder
+    path = "."
+    dataset = Data_things.getdataset(path)
+    #wrap datset into batchsz
+    batchsz = 8
+    datalaoder = Data_things.getdataloader(batchsz)
+    # make instance of model class
+    m = model.Autoenc()
+    #train instance m
+    model.train(m) # shoul have the training loop 
 
-    # getting images from this directory
-    train_loader, test_loader = dl.get_data(".")
-    
-    # print(z)
-    # print("Got data")
-
-    # print first image
-    # plt.imshow(z[4][0])
-    # plt.grid(False)
-    # plt.show()
-
-    # I think these two lines should probably print the first image
-    data_iter = iter(train_loader)
-    images, labels = next(data_iter)
-
-    for num in range(1, 6):
-        plt.subplot(10, 10, num)
-        plt.axis('off')
-        plt.imshow(images[num].numpy().squeeze())
-
+    # check prfromance on image 4
+    img_number = 4
+    model.evalu(m,img_number)
 
 
     
