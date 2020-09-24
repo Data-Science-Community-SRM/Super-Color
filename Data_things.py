@@ -4,9 +4,11 @@ All data manupilation things in this file
 
 """
 
-import torchvision 
+import torchvision
+import torch.utils.data
 import torchvision.transforms as trs
 
+# change name according to main
 def get_data( loc ):
     """
     Simple function that gives us torchvision dataset.
