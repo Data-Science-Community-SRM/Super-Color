@@ -7,7 +7,7 @@ training, inference everything will be run from here
 
 # importing our personal file 
 import Data_things
-
+import model
 
 import matplotlib.pyplot as plt
 
@@ -15,20 +15,25 @@ import matplotlib.pyplot as plt
 
 def main():
     """
-    can only show image for now
+    Can call function from now
     """
-    print("Running main now")
+    #get images from  current folder
+    path = "."
+    dataset = Data_things.getdataset(path)
+    #wrap datset into batchsz
+    batchsz = 8
+    datalaoder = Data_things.getdataloader(batchsz)
+    # make instance of model class
+    m = model.Autoenc()
+    #train instance m
+    model.train(m) # shoul have the training loop 
 
-    # getting images from this directory
-    z = Data_things.get_data(".")
-    
-    print(z)
-    print("Got data")
+    # check prfromance on image 4
+    img_number = 4
+    model.evalu(m,img_number)
 
-    # print first image
-    plt.imshow(z[4][0])
-    plt.grid(False)
-    plt.show()
+
+
 
     
 # This will call main function only when this is the main file
