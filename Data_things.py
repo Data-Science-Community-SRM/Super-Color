@@ -17,7 +17,7 @@ def get_data( loc ):
 
 
     """
-    y = trs.Compose([trs.CenterCrop(250), trs.Grayscale(num_output_channels=1)])
+    y = trs.Compose([transforms.Grayscale(num_output_channels=1), transforms.ToTensor(),transforms.Normalize(mean=[0.5], std=[0.5])])
     x = torchvision.datasets.ImageFolder(loc,y)
     return x
     
