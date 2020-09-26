@@ -1,9 +1,10 @@
 import torch
 import torch.nn as nn
 import torch.optim as optim
-import data_loader as dl
+import Data_things as dl
 import matplotlib.pyplot as plt
 import model as md
+from torch.utils.data import Dataset,DataLoader
 
 def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
     losses = []
@@ -39,13 +40,16 @@ def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
 
 def main():
     path = "."
-
     batch_size = 8
-    train_loader = dl.get_data(path, batch_size)
+
+    dataset = dl.REcolorDataset(path)
+    train_loader = DataLoader(dataset,batch_size)
     
-    inputShape = ..
+    inputShape = 4
     model = md.AutoEncoder(inputShape)
 
+    model(dataset[0][0])
+    """
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=1e-3)
     num_epochs = 500
@@ -60,6 +64,7 @@ def main():
         fig = plt.figure()
         plt.subplot(.., ..)
         plt.imshow(test_output)
+    """
 
 if __name__ == "__main__":
     main()

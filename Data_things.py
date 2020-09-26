@@ -13,8 +13,8 @@ class REcolorDataset(Dataset):
         return self.x.__len__()
 
     def __getitem__(self,idx):
-        inp = trs.Compose([trs.RandomCrop(250)])
-        out = trs.Compose([trs.Grayscale(num_output_channels=1)])
+        inp = trs.Compose([trs.RandomCrop(250),trs.ToTensor()])
+        out = trs.Compose([trs.Grayscale(1)])
         img = inp(self.x[idx][0])
         return out(img), img
 
@@ -31,8 +31,8 @@ def getdataset( loc ):
     x = REcolorDataset(loc)
     return x
 
-def getdataloader(dataset):
-    return DataLoader(dataset,2)
+def getdataloader(dataset, bs):
+    return DataLoader(dataset,bs)
 
 
 if __name__ == "__main__":
