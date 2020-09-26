@@ -28,9 +28,7 @@ def getdataset( loc ):
 
 
     """
-    #y = trs.Compose([trs.RandomCrop(250), trs.Grayscale(num_output_channels=1)])
     x = REcolorDataset(loc)
-
     return x
 
 def getdataloader(dataset):
