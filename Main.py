@@ -1,17 +1,20 @@
+import torch
+import torch.nn as nn
+import torch.optim as optim
 import data_loader as dl
 import matplotlib.pyplot as plt
+import model as md
 
-
-# importing our personal file 
-import Data_things
-import model
-
-def train(model, train_loader):
+def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
     losses = []
-    for epoch in range(100):
+    for epoch in range(num_epochs):
         running_loss = 0.0
 
-        for images, labels in train_loader:
+        for images, _ in train_loader:
+            # flattening n x n image into n^2 to feed into network
+            # where n = inputShape
+            images = images.view(inputShape, -1)
+
             # reinitializing gradients to zero to prevent exploding gradients
             optimizer.zero_grad()
 
@@ -35,27 +38,28 @@ def train(model, train_loader):
     plt.ylabel('Losses')
 
 def main():
-    """
-    Can call function from now
-    """
-    #get images from  current folder
     path = "."
-    dataset = Data_things.getdataset(path)
-    #wrap datset into batchsz
-    batchsz = 8
-    datalaoder = Data_things.getdataloader(batchsz)
-    # make instance of model class
-    m = model.Autoenc()
-    #train instance m
-    model.train(m) # shoul have the training loop 
 
-    # check prfromance on image 4
-    img_number = 4
-    model.evalu(m,img_number)
-
-
+    batch_size = 8
+    train_loader = dl.get_data(path, batch_size)
     
-# This will call main function only when this is the main file
-# when you import a python script it is not the main file
+    inputShape = ..
+    model = md.AutoEncoder(inputShape)
+
+    criterion = nn.MSELoss()
+    optimizer = optim.Adam(model.parameters(), lr=1e-3)
+    num_epochs = 500
+    
+    train(model, train_loader, criterion, optimizer, num_epochs, inputShape)
+
+    img_number = 4
+    model.eval()
+
+    with torch.no_grad():
+        test_output = model(img_number)
+        fig = plt.figure()
+        plt.subplot(.., ..)
+        plt.imshow(test_output)
+
 if __name__ == "__main__":
     main()
