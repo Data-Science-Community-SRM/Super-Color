@@ -13,10 +13,12 @@ class REcolorDataset(Dataset):
         return self.x.__len__()
 
     def __getitem__(self,idx):
-        inp = trs.Compose([trs.RandomCrop(250),trs.ToTensor()])
-        out = trs.Compose([trs.Grayscale(1)])
+        inp = trs.Compose([trs.RandomCrop(128)])
+        grey = trs.Grayscale(1)
+        tt = trs.ToTensor()
+
         img = inp(self.x[idx][0])
-        return out(img), img
+        return tt(grey(img)) ,tt(img)
 
 
 # change name according to main

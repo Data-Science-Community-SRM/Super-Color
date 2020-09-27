@@ -8,13 +8,12 @@ from torch.utils.data import Dataset,DataLoader
 
 def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
     losses = []
-    for epoch in range(num_epochs):
+    for _ in range(num_epochs):
         running_loss = 0.0
 
-        for images, _ in train_loader:
+        for images, out in train_loader:
             # flattening n x n image into n^2 to feed into network
             # where n = inputShape
-            images = images.view(inputShape, -1)
 
             # reinitializing gradients to zero to prevent exploding gradients
             optimizer.zero_grad()
@@ -23,24 +22,24 @@ def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
             output = model(images)
 
             # calculating loss
-            loss = criterion(output, labels)
+            loss = criterion(output,out)
 
             # backprop step
             loss.backward()
 
             running_loss += loss.item()
             losses.append(running_loss)
-
+            print(loss.item())
             optimizer.step()
 
-    fig = plt.figure()
-    plt.plot(losses)
-    plt.xlabel('Epochs')
-    plt.ylabel('Losses')
+    # fig = plt.figure()
+    # plt.plot(losses)
+    # plt.xlabel('Epochs')
+    # plt.ylabel('Losses')
 
 def main():
     path = "."
-    batch_size = 8
+    batch_size = 2
 
     dataset = dl.REcolorDataset(path)
     train_loader = DataLoader(dataset,batch_size)
@@ -48,14 +47,14 @@ def main():
     inputShape = 4
     model = md.AutoEncoder(inputShape)
 
-    model(dataset[0][0])
-    """
+    A = dataset[0][0].unsqueeze(0)
+
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=1e-3)
-    num_epochs = 500
+    num_epochs = 5
     
     train(model, train_loader, criterion, optimizer, num_epochs, inputShape)
-
+    """
     img_number = 4
     model.eval()
 
