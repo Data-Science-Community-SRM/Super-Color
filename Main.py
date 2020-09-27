@@ -51,7 +51,7 @@ def main():
 
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=1e-3)
-    num_epochs = 5
+    num_epochs = 20
     
     train(model, train_loader, criterion, optimizer, num_epochs, inputShape)
     """
