@@ -9,12 +9,12 @@ from tqdm import tqdm
 import numpy as np
 
 def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
-    losses = []
+    losses = [0,0,0]
     for e in range(num_epochs):
         running_loss = 0.0
         print(e)
         i =0
-        for images, out in tqdm(train_loader):
+        for images, out in train_loader:
             # flattening n x n image into n^2 to feed into network
             # where n = inputShape
 
@@ -32,12 +32,13 @@ def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
 
             running_loss += loss.item()
             losses.append(running_loss)
+            print(losses[-2]-losses[-1])
             if i % 200 == 0:
                 Z = output.detach()
                 X = images.detach()
-                plt.imshow(np.transpose(Z[1],(1,2,0)))
+                plt.imshow(dl.Normalizepls(np.transpose(Z[0],(1,2,0))))
                 plt.show()
-                plt.imshow(X[1][0])
+                plt.imshow(dl.Normalizepls(X[0])[0])
                 plt.show()
             i += 1
             optimizer.step()
@@ -51,7 +52,7 @@ def train(model, train_loader, criterion, optimizer, num_epochs, inputShape):
 
 def main():
     path = "."
-    batch_size = 32
+    batch_size = 1
 
     dataset = dl.REcolorDataset(path)
     print(len(dataset))
@@ -64,16 +65,10 @@ def main():
 
     criterion = nn.MSELoss()
     optimizer = optim.Adam(model.parameters(), lr=1e-4)
-    num_epochs = 2
+    num_epochs = 100
     
     train(model, train_loader, criterion, optimizer, num_epochs, inputShape)
-    img_number = 4
-    model.eval()
 
-    with torch.no_grad():
-        test_output = model(A)
-        fig = plt.figure()
-        plt.imshow(test_output)
 
 if __name__ == "__main__":
     main()

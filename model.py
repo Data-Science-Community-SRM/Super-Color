@@ -16,12 +16,12 @@ class AutoEncoder(nn.Module):
 
 
 	def forward(self, x):
-		output = F.relu(self.inputLayer(x))
-		output = F.relu(self.encoder1(output))
-		output = F.relu(self.encoder2(output))
+		output = torch.tanh(self.inputLayer(x))
+		output = torch.tanh(self.encoder1(output))
+		output = torch.tanh(self.encoder2(output))
 		
-		output = F.relu(self.decoder1(output))
-		output = F.relu(self.decoder2(output))
-		output = F.relu(self.outputLayer(output))
+		output = torch.tanh(self.decoder1(output))
+		output = torch.tanh(self.decoder2(output))
+		output = torch.tanh(self.outputLayer(output))
 
 		return output

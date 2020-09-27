@@ -1,7 +1,7 @@
 import torchvision
 from torch.utils.data import Dataset,DataLoader
 import torchvision.transforms as trs
-
+import torch
 import matplotlib.pyplot as plt
 
 
@@ -15,7 +15,7 @@ class REcolorDataset(Dataset):
     def __getitem__(self,idx):
         inp = trs.Compose([trs.RandomCrop(128)])
         grey = trs.Grayscale(1)
-        tt = trs.ToTensor()
+        tt = trs.Compose([trs.ToTensor(),trs.Normalize(mean=0.5,std =0.5)])
 
         img = inp(self.x[idx][0])
         return tt(grey(img)) ,tt(img)
@@ -36,13 +36,17 @@ def getdataset( loc ):
 def getdataloader(dataset, bs):
     return DataLoader(dataset,bs)
 
+def Normalizepls(img):
+    return trs.Normalize(-1.0,2.0)(img)
+
 
 if __name__ == "__main__":
     #this will not run no until this is the main file
     print("Data_things test")
     x = getdataset(".")
-    print(x[1])
+
     i = x[4]
+    exit()
     plt.imshow(i[0])
     plt.show()
     plt.imshow(i[1])
