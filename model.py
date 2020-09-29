@@ -3,6 +3,10 @@ from torchvision import transforms
 import torch.nn as nn
 import torch.nn.functional as F
 
+
+# torch.nn.Conv2d (in_channels, out_channels, kernel_size, stride,padding)
+# torch.nn.ConvTranspose2d (in_channels, out_channels, kernel_size, stride, padding, output_padding)
+
 class AutoEncoder(nn.Module):
 	def __init__(self,inputShape):
 		super(AutoEncoder, self).__init__()
