@@ -1,8 +1,14 @@
-import torchvision
-from torch.utils.data import Dataset,DataLoader
-import torchvision.transforms as trs
 import torch
+import torch.nn as nn
+import torch.nn.functional as F
+import torch.optim as optim
+import Data_things as dl
 import matplotlib.pyplot as plt
+from torch.utils.data import Dataset,DataLoader
+import torchvision
+import torchvision.transforms as trs
+from tqdm import tqdm
+import numpy as np
 
 
 class REcolorDataset(Dataset):
@@ -22,23 +28,8 @@ class REcolorDataset(Dataset):
 
 
 # change name according to main
-def getdataset( loc ):
-    """
-    Simple function that gives us torchvision dataset.
-
-    This is the most basic version. We will have to make it more complex as we go
-
-
-    """
-    x = REcolorDataset(loc)
-    return x
-
-def getdataloader(dataset, bs):
-    return DataLoader(dataset,bs)
-
-def Normalizepls(img):
-    return trs.Normalize(-1.0,2.0)(img)
-
+def normlocal(img):
+    return img
 
 if __name__ == "__main__":
     #this will not run no until this is the main file
