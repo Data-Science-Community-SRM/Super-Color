@@ -11,16 +11,21 @@ def load_model(path):
 	model.summary()
 	return model
 
-def preProc(A,y):
-    normalization_layer = tf.keras.layers.experimental.preprocessing.Rescaling(1./255)
-    B = normalization_layer(A)
-    A = tf.image.rgb_to_hsv(B)
-    return A[:,:,:,-1:], A
+def preProc(A):
+	A = np.array(A)
+	normalization_layer = tf.keras.layers.experimental.preprocessing.Rescaling(1./255)
+	B = normalization_layer(A)
+	B = tf.image.resize(B, [1024, 1024])
+	A = tf.image.rgb_to_hsv(B)
+	return A[:,:,:,-1:]
 
-def colorize_image(model, img_array):
-	predImg = model.predict([img_array], verbose=0)
-	finalPredImg = tf.image.hsv_to_rgb(predImg)
-	return finalPredImg
+def recolor(model, img_array):
+	# print(img_array.shape)
+	# img_array = img_array.reshape(1, -1, -1, -1)
+	print(img_array.shape)
+	predImg = model.predict(img_array, verbose=0)
+	predImg = tf.image.hsv_to_rgb(predImg)
+	return np.array(predImg)
 
 def main():
 	link = 'https://images.unsplash.com/photo-1558056524-97698af21ff8?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80'
@@ -45,11 +50,13 @@ def main():
 			model = load_model(model_path)
 
 			image = Image.open(img_file_buffer)
+			st.image(image, caption="Original Image", use_column_width=True)
 			img_array = np.array(image)
+
+			img = preProc([img_array])
 			
-			colorImg = colorize_image(model, img_array)
-			st.image(colorImg, use_column_width=True)
-			st.write("Processing!")
+			colorImg = recolor(model, img)
+			st.image(colorImg, caption = "Colorized Image", use_column_width=True)
 		
 		st.success("Successfuly colorized the image!")
 
