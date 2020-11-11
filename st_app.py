@@ -20,8 +20,7 @@ def preProc(A):
 	return A[:,:,:,-1:]
 
 def recolor(model, img_array):
-	# print(img_array.shape)
-	# img_array = img_array.reshape(1, -1, -1, -1)
+	
 	print(img_array.shape)
 	predImg = model.predict(img_array, verbose=0)
 	predImg = tf.image.hsv_to_rgb(predImg)
@@ -45,7 +44,7 @@ def main():
 
 	model_path = 'recolor.h5'
 	if img_file_buffer is not None:
-		# st.image(img, caption="B&W Image Uploaded")
+		
 		with st.spinner("Colorizing Image..."):
 			model = load_model(model_path)
 
