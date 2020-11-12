@@ -41,7 +41,7 @@ def main():
 	img_file_buffer = st.file_uploader("Upload Black & White Image", type=['png', 'jpg'])
 	st.set_option('deprecation.showfileUploaderEncoding', False)
 
-	model_path = 'recolor.h5'
+	model_path = 'Model/recolor.h5'
 	if img_file_buffer is not None:
 		
 		with st.spinner("Colorizing Image..."):
