@@ -11,25 +11,25 @@
 
 - Output:
 <p align="center">
-  <img src="Media/Demo.webm" alt="screen recording of output" width="576" height="324">
+  <img src="Media/Demo.webm" alt="screen recording of output">
 </p>
 
 - Browse images from your system and try out our image colorization model! 
 
 <p align="center">
-  <img src="Media/Preview 1.png" alt="Web app output #1" width="623" height="628">
+  <img src="Media/Preview 1.png" alt="Web app output #1">
 </p>
 <p align="center">
-  <img src="Media/Preview 2.png" alt="Web app output #2" width="623" height="628">
+  <img src="Media/Preview 2.png" alt="Web app output #2">
 </p>
 <p align="center">
-  <img src="Media/Preview 3.png" alt="Web app output #3" width="623" height="628">
+  <img src="Media/Preview 3.png" alt="Web app output #3">
 </p>
 
 ## Functionalities
 - It works on the concept of Autoencoders. This approach was introduced by Richard Zhang in his paper ([Colorful Image Colorization](https://arxiv.org/abs/1603.08511)). These autoencoders cleverly store the important details of a big image into a small space and then try to recreate this image in color. We penalize the autoencoder when it doesn't do a good job until it begins to get it right.
 
-Feel free to head to our ([webapp](https://share.streamlit.io/data-science-community-srm/image-recolorization) and explore it for yourself.
+Feel free to head to our [webapp](https://share.streamlit.io/data-science-community-srm/image-recolorization) and explore it for yourself.
 
 ## Contribute 👨‍👨‍👧‍👦
 
@@ -107,7 +107,7 @@ Harsh Sharma
 </a>
 </p>
 </td>
-
+</table>
 
 ## License
 
