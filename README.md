@@ -11,7 +11,7 @@
 
 - Output:
 <p align="center">
-  <img src="Media/Demo.webm" alt="screen recording of output">
+  <img src="Media/Demo.gif" alt="screen recording of output">
 </p>
 
 - Browse images from your system and try out our image colorization model! 
@@ -41,7 +41,7 @@ If you have any questions, open an issue.
 ## Contributors
 
 
-<table>
+<table align="center">
 <tr align="center">
 
 
