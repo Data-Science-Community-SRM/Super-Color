@@ -4,7 +4,6 @@ import tensorflow as tf
 import numpy as np
 import pandas as pd
 from PIL import Image
-import time
 
 def load_model(path):
 	model = keras.models.load_model(path)
