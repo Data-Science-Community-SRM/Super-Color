@@ -9,7 +9,7 @@
 ## Preview
 
 
-- Output:
+- Demo:
 <p align="center">
   <img src="Media/Demo.gif" alt="screen recording of output">
 </p>
