@@ -16,27 +16,23 @@
 
 - Browse images from your system and try out our image colorization model! 
 
-<p align="center">
-  <img src="Media/Preview 1.png" alt="Web app output #1">
-</p>
-<p align="center">
-  <img src="Media/Preview 2.png" alt="Web app output #2">
-</p>
-<p align="center">
-  <img src="Media/Preview 3.png" alt="Web app output #3">
-</p>
 
-## Functionalities
+![Web app output #1](Media/Preview1.png)
+
+![Web app output #2](Media/Preview2.png)
+
+![Web app output #3](Media/Preview3.png)
+
+
+## Functionality
 - It works on the concept of Autoencoders. This approach was introduced by Richard Zhang in his paper ([Colorful Image Colorization](https://arxiv.org/abs/1603.08511)). These autoencoders cleverly store the important details of a big image into a small space and then try to recreate this image in color. We penalize the autoencoder when it doesn't do a good job until it begins to get it right.
 
 Feel free to head to our [webapp](https://share.streamlit.io/data-science-community-srm/image-recolorization) and explore it for yourself.
 
-## Contribute 👨‍👨‍👧‍👦
+## Contribute
 
-Thanks for taking the time to contribute!
-
-The following is a set of guidelines for contributing to Image Colorization. Please check out the [Contribute.md](Contribution.md) . These are just guidelines, not rules, so use your best judgement and feel free to propose changes to this document in a pull request.
-If you have any questions, open an issue.
+You can check out our contributions, issues we faced and solutions we found in [Contribute.md](Contribution.md).
+Feel free to fork this repository and make your own contributions.
 
 ## Contributors
 
@@ -113,7 +109,7 @@ Harsh Sharma
 
 MIT © Data Science Community SRM
 
-This project is licensed under the MIT License - see the [License.md](https://github.com/Data-Science-Community-SRM/hand-gesture-recognition-and-modification/blob/master/License.md) file for details
+This project is licensed under the MIT License - see the [License.md](License.md) file for details
 
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
