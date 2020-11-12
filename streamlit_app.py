@@ -33,7 +33,7 @@ def main():
 
 	st.subheader("Supercolor is an ML web-app which has been trained to rebuild color images from their grayscale or B/W input equivalents that you provide us with.")
 
-	st.write("It works on the concept of Variational Autoencoders. This approach was introduced by Richard Zhang in his paper [Colorful Image Colorization](https://arxiv.org/abs/1603.08511). These autoencoders cleverly store the important details of a big image into a small space and then try to recreate this image in color. We penalize the autoencoder when it doesn't do a good job until it begins to get it right.", unsafe_allow_htl=True)
+	st.write("It works on the concept of Autoencoders. This approach was introduced by Richard Zhang in his paper [Colorful Image Colorization](https://arxiv.org/abs/1603.08511). These autoencoders cleverly store the important details of a big image into a small space and then try to recreate this image in color. We penalize the autoencoder when it doesn't do a good job until it begins to get it right.", unsafe_allow_htl=True)
 	st.write("Feel free to head to our [Github repository](https://github.com/Data-Science-Community-SRM/Image-Recolorization) to explore the code.")
 
 	st.write("Keep in mind that it may take us some time to colorize this image.")
