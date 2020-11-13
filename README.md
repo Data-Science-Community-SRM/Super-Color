@@ -25,7 +25,7 @@
 
 
 ## Functionality
-- It works on the concept of Autoencoders. This approach was introduced by Richard Zhang in his paper ([Colorful Image Colorization](https://arxiv.org/abs/1603.08511)). These autoencoders cleverly store the important details of a big image into a small space and then try to recreate this image in color. We penalize the autoencoder when it doesn't do a good job until it begins to get it right.
+- It works on the concept of Autoencoders. This approach was introduced by Richard Zhang in his paper [Colorful Image Colorization](https://arxiv.org/abs/1603.08511). These autoencoders cleverly store the important details of a big image into a small space and then try to recreate this image in color. We penalize the autoencoder when it doesn't do a good job until it begins to get it right.
 
 Feel free to head to our [webapp](https://share.streamlit.io/data-science-community-srm/image-recolorization) and explore it for yourself.
 
