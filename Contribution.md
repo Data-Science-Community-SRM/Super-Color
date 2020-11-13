@@ -2,7 +2,7 @@
 
 We decided to build and train our model on the Google Colab platform since it provides free GPU access which was critical for our extensive model architecture. 
 
-## Dataset : ([Google Landmark](https://s3.amazonaws.com/google-landmark/train/images_001.tar))
+## Dataset : [Google Landmark](https://s3.amazonaws.com/google-landmark/train/images_001.tar)
 
 ### Problems
 
