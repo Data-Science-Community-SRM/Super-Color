@@ -114,5 +114,5 @@ This project is licensed under the MIT License - see the [License.md](License.md
 [![License](http://img.shields.io/:license-mit-blue.svg?style=flat-square)](http://badges.mit-license.org)
 
 <p align="center">
-	Made with :heart: by <a href="https://dscommunity.in">DS Community SRM</a>
+	Made with :heart:  by <a href="https://dscommunity.in">DS Community SRM</a>
 </p>
